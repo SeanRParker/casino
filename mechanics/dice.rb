@@ -8,6 +8,7 @@ module Mechanics
             # (rand * 7).floor
             # #or
             # rand(1..6)
+            
         end
     end
 end 
