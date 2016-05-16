@@ -11,6 +11,7 @@ puts "5) Quit, before you lose more."
 game_selection = gets.to_i
 case game_selection
 when 1
+  puts "You have chosen black jack!"
   puts = Mechanics::blackJack
 when 2
   puts = Mechanics::over_under
