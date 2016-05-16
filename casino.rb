@@ -2,6 +2,7 @@
 Dir[File.dirname(__FILE__) + '/mechanics/*.rb'].each {|file| require file}
 
 class Casino
+    include Main_menu
     include Mechanics
 
     def play
