@@ -1,4 +1,5 @@
 module Mechanics
+   
    class Card
        attr_accessor :rank, :suit, :color
        #card = Card.new('k','Spade', 'Black')

@@ -27,10 +27,25 @@ module Mechanics
                end
 
         def blackjack_mech
-        
         cards = Deck.new.cards.shuffle
         cards.each do |card|
-            puts "#{card.rank} of #{card.suit}"
+        	#player is dealt two cards
+            puts "#{card.rank} of #{card.suit}" << "#{card.rank} of #{card.suit}"
+            # player is offered another card
+            puts "Would you like another card?"
+            # if under 21 offer player if they would like another
+            if @user_input = "y"
+            	choice = get.to.i
+            	
+            		
+            	end
+            	
+            	puts "Would you like another card?"
+            }
+            # else over 21 they have lost their bet.
+            else
+            	puts "You have lost your bet!"
+
         end
            end
        end
