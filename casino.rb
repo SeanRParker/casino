@@ -15,6 +15,7 @@ class Casino
     def user
       user_profile = Mechanics::UserProfile.new
       puts Mechanics::Menu.main_menu(user_profile)
+
     end
 
 end
