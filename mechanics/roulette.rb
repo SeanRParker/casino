@@ -13,7 +13,7 @@ module Mechanics
            spin << rand(1..30) << @color.sample
            puts spin
 
-          if bet_color == spin
+          if spin == bet_color && bet_number
             puts "you win"
           else
             puts "You Lost"
