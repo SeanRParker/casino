@@ -2,6 +2,15 @@ module Mechanics
    module Roulette
 
        def self.spin
+        puts '--------Welcome to Roulette-------'
+        puts '''
+  _____             _      _   _
+ |  __ \           | |    | | | |
+ | |__) |___  _   _| | ___| |_| |_ ___
+ |  _  // _ \| | | | |/ _ \ __| __/ _ \
+ | | \ \ (_) | |_| | |  __/ |_| ||  __/
+ |_|  \_\___/ \__,_|_|\___|\__|\__\___|
+        '''
         puts "What number do you want to bet on (1..30)?"
         bet_number = gets.strip.to_i
         puts "What color do you want to bet on (Red or Black)?"

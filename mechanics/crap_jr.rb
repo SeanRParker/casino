@@ -7,7 +7,17 @@
 module Mechanics
     module Craps_jr
         def self.roll
-          puts 'Welcome to Craps Jr.!'
+          puts '--------Welcome to Craps Jr.!-------'
+          puts %q(
+   _____                            _
+  / ____|                          | |
+ | |     _ __ __ _ _ __  ___       | |_ __
+ | |    | '__/ _` | '_ \/ __|  _   | | '__|
+ | |____| | | (_| | |_) \__ \ | |__| | |_
+  \_____|_|  \__,_| .__/|___/  \____/|_(_)
+                  | |
+                  |_|
+          )
           puts 'Roll a total of 7 or 11 to win!'
           puts 'Here is your roll.'
           die = []
@@ -27,7 +37,7 @@ module Mechanics
                 self.roll
             else
                 #link back to the main menu but for now exit
-                # exit(0)
+                exit(0)
                 # casino
             end
         end
