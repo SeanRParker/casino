@@ -1,7 +1,7 @@
 module Mechanics
    module High_low
 
-       def self.turn
+       def self.turn(user_profile)
         puts '-------Welcome to High or Low-------'
         puts %q"
   _    _ _       _                    _                     ___
@@ -42,11 +42,11 @@ module Mechanics
           puts 'Do you want to play again? (y/n)'
           user_input = gets.strip.downcase
           if user_input == 'y'
-                self.turn
+            Mechanics::Wager::take_bid(user_profile)
+                self.turn(user_profile)
           else
               #link back to the main menu but for now exit
-             exit(0)
-                # casino
+             Mechanics::Menu::main_menu(user_profile)
           end
 
        end

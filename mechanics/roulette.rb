@@ -1,7 +1,7 @@
 module Mechanics
    module Roulette
 
-       def self.spin
+       def self.spin(user_profile)
         puts '--------Welcome to Roulette-------'
         puts '''
   _____             _      _   _
@@ -31,11 +31,11 @@ module Mechanics
           puts 'Do you want to play again? (y/n)'
           user_input = gets.strip.downcase
           if user_input == 'y'
-                self.spin
+            Mechanics::Wager::take_bid(user_profile)
+                self.spin(user_profile)
           else
               #link back to the main menu but for now exit
-             exit(0)
-                # casino
+             Mechanics::Menu::main_menu(user_profile)
           end
 
        end

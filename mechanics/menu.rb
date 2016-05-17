@@ -9,30 +9,41 @@ module Mechanics
       puts "What would you like to play:"
       puts "--- GAME MENU ---"
       puts "1) Black Jack"
-      puts "2) Over Under"
+      puts "2) High or low"
       puts "3) Slots"
-      puts "4) Cup Game"
-      puts "5) Quit, before you lose more."
+      puts "4) Craps Jr."
+      puts "5) Roulette"
+      puts "6) Guess Your Luck"
+      puts "7) Cup Game"
+      puts "8) Quit, before you lose more."
       game_selection = gets.to_i
       case game_selection
       when 1
         puts "Black Jack!"
         Mechanics::Wager::take_bid(user_profile)
-        Mechanics::Cards::blackjack_mech
+        Mechanics::Cards::blackjack_mech(user_profile)
       when 2
-        put "Loading Over / Under"
+        Mechanics::High_low.turn(user_profile)
         Mechanics::Wager::take_bid(user_profile)
-        Mechanics::over_under
       when 3
         puts "Let's play slots!"
         Mechanics::Wager::take_bid(user_profile)
-        Mechanics::slots
+        Mechanics::slots(user_profile)
       when 4
+        Mechanics::Craps_jr.roll(user_profile)
+        Mechanics::Wager::take_bid(user_profile)
+      when 5
+        Mechanics::Roulette.spin(user_profile)
+        Mechanics::Wager::take_bid(user_profile)
+      when 6
+        Mechanics::Guess_luck.luck(user_profile)
+        Mechanics::Wager::take_bid(user_profile)
+      when 7
         puts "Welcome to the cup game!"
         Mechanics::Cup_game.new
         Mechanics::Wager::take_bid(user_profile)
         Mechanics::Cup_game::shuffle_cups(user_profile)
-      when 5
+      when 8
         exit(0)
       else
         "Bad command. Please enter 1-4"

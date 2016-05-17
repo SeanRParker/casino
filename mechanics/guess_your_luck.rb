@@ -1,7 +1,7 @@
 module Mechanics
    module Guess_luck
 
-       def self.luck
+       def self.luck(user_profile)
         puts '-------Welcome to Guess your Luck!-------'
         puts %q"
    _____                      __     __                _                _      _
@@ -34,14 +34,14 @@ module Mechanics
         end
 
         puts 'Do you want to play again? (y/n)'
-            user_input = gets.strip.downcase
-        if user_input == 'y'
-                self.luck
-        else
-            #link back to the main menu but for now exit
-            exit(0)
-             # casino
-        end
+          user_input = gets.strip.downcase
+          if user_input == 'y'
+            Mechanics::Wager::take_bid(user_profile)
+                self.luck(user_profile)
+          else
+              #link back to the main menu but for now exit
+             Mechanics::Menu::main_menu(user_profile)
+          end
 
      end
 
