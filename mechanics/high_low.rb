@@ -1,5 +1,10 @@
 module Mechanics
    module High_low
+        attr_accessor :result
+
+        def initialize
+          @result = result
+        end
 
        def self.turn(user_profile)
         puts '-------Welcome to High or Low-------'
@@ -14,6 +19,8 @@ module Mechanics
            |___/
 
         "
+
+
         puts 'Here is your number'
         @number = rand(1..10)
         @dealer = rand(1..10)
@@ -27,15 +34,23 @@ module Mechanics
             puts @dealer
             if @number < @dealer
               puts 'you win'
+              result = true
+              Mechanics::Wager::adjust_balance(user_profile, result)
             else
               puts 'you lose'
+              result = false
+              Mechanics::Wager::adjust_balance(user_profile, result)
             end
           elsif bet_decision == 'low'
             puts @dealer
             if @number > @dealer
               puts 'you win'
+              result = true
+              Mechanics::Wager::adjust_balance(user_profile, result)
             else
               puts 'you lose'
+              result = false
+              Mechanics::Wager::adjust_balance(user_profile, result)
             end
           end
 

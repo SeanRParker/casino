@@ -1,7 +1,12 @@
 module Mechanics
    module Guess_luck
+      attr_accessor :result
 
-       def self.luck(user_profile)
+      def initialize
+          @result = result
+      end
+
+      def self.luck(user_profile)
         puts '-------Welcome to Guess your Luck!-------'
         puts %q"
    _____                      __     __                _                _      _
@@ -27,10 +32,16 @@ module Mechanics
 
         if guess > num
           puts "The number is too high."
+          result = false
+          Mechanics::Wager::adjust_balance(user_profile, result)
         elsif guess < num
           puts "The number is too low."
+          result = false
+          Mechanics::Wager::adjust_balance(user_profile, result)
         elsif guess == num
           puts 'you win'
+          result = true
+          Mechanics::Wager::adjust_balance(user_profile, result)
         end
 
         puts 'Do you want to play again? (y/n)'

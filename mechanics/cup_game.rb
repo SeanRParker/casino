@@ -46,3 +46,4 @@ module Mechanics
 
     # if it matches give the user their money. Otherwise, take it away!!!
 end
+

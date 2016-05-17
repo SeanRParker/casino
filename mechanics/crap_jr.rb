@@ -1,6 +1,12 @@
 
 module Mechanics
     module Craps_jr
+        attr_accessor :result
+
+        def initialize
+          @result = result
+        end
+
         def self.roll(user_profile)
           puts '--------Welcome to Craps Jr.!-------'
           puts %q(
@@ -23,8 +29,12 @@ module Mechanics
             sum_die = die.inject(0){|sum,x| sum + x}
             if sum_die == 7 || sum_die == 11
                 puts 'You Win!'
+                result = true
+                Mechanics::Wager::adjust_balance(user_profile, result)
             else
                 puts 'You lose'
+                result = false
+                Mechanics::Wager::adjust_balance(user_profile, result)
             end
             puts 'Do you want to play again? (y/n)'
               user_input = gets.strip.downcase

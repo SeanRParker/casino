@@ -1,7 +1,12 @@
 module Mechanics
    module Roulette
+      attr_accessor :result
 
-       def self.spin(user_profile)
+      def initialize
+          @result = result
+      end
+
+      def self.spin(user_profile)
         puts '--------Welcome to Roulette-------'
         puts '''
   _____             _      _   _
@@ -24,8 +29,12 @@ module Mechanics
 
           if spin == bet_color && bet_number
             puts "you win"
+            result = true
+            Mechanics::Wager::adjust_balance(user_profile, result)
           else
             puts "You Lost"
+            result = false8
+            Mechanics::Wager::adjust_balance(user_profile, result)
           end
 
           puts 'Do you want to play again? (y/n)'

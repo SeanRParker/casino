@@ -23,21 +23,21 @@ module Mechanics
         Mechanics::Wager::take_bid(user_profile)
         Mechanics::Cards::blackjack_mech(user_profile)
       when 2
-        Mechanics::High_low.turn(user_profile)
         Mechanics::Wager::take_bid(user_profile)
+        Mechanics::High_low.turn(user_profile)
       when 3
         puts "Let's play slots!"
         Mechanics::Wager::take_bid(user_profile)
         Mechanics::slots(user_profile)
       when 4
+        Mechanics::Wager::take_bid(user_profile)
         Mechanics::Craps_jr.roll(user_profile)
-        Mechanics::Wager::take_bid(user_profile)
       when 5
+        Mechanics::Wager::take_bid(user_profile)
         Mechanics::Roulette.spin(user_profile)
-        Mechanics::Wager::take_bid(user_profile)
       when 6
-        Mechanics::Guess_luck.luck(user_profile)
         Mechanics::Wager::take_bid(user_profile)
+        Mechanics::Guess_luck.luck(user_profile)
       when 7
         puts "Welcome to the cup game!"
         Mechanics::Cup_game.new
@@ -46,7 +46,8 @@ module Mechanics
       when 8
         exit(0)
       else
-        "Bad command. Please enter 1-4"
+        "Bad command. Please enter 1-8"
+        self.main_menu(user_profile)
       end
     end
 
