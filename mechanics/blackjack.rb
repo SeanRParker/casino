@@ -28,7 +28,7 @@ module Mechanics
       end
     end
 
-    def blackjack_mech
+    def self.blackjack_mech
       cards = Deck.new.cards.shuffle
       cards.each do |card|
         #player is dealt two cards

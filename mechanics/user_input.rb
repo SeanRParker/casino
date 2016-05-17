@@ -1,18 +1,15 @@
 module Mechanics
 
-	class User_profile
-	# @user = {name => total}
-	@user =[]
-	@money =[]
+	class UserProfile
+		attr_accessor :user, :money
 
-		puts "What is your name?"
-		name = gets.strip
-		@user << name
-		puts "How much is in your wallet?"
-		total = gets.strip.to_f
-		@money << total
-		puts @user
-		puts @money
+		def initialize
+			puts "What is your name?"
+			@user = gets.strip
+			puts "How much money are you bringing to the casino today?"
+			@money = gets.strip.to_f
+		end
+
 	end
 
 end

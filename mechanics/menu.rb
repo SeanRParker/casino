@@ -2,15 +2,10 @@ module Mechanics
   class Menu
     attr_accessor :user_profile, :total
 
-    def initialize
-      @user_profile = ''
-      @total = 0
-    end
+    def self.main_menu(user_profile)
+      puts "Welcome to the casino #{user_profile.user}!"
 
-    def everything
-      puts "Welcome to the casino #{user_profile}!"
-
-      puts "Your balance is: #{total}"
+      puts "Your balance is: #{user_profile.money}"
       puts "What would you like to play:"
       puts "--- GAME MENU ---"
       puts "1) Black Jack"
@@ -21,14 +16,22 @@ module Mechanics
       game_selection = gets.to_i
       case game_selection
       when 1
-        puts "You have chosen black jack!"
-        puts = Mechanics::blackJack
+        puts "Black Jack!"
+        Mechanics::Wager::take_bid(user_profile)
+        Mechanics::Cards::blackjack_mech
       when 2
-        puts = Mechanics::over_under
+        put "Loading Over / Under"
+        Mechanics::Wager::take_bid(user_profile)
+        Mechanics::over_under
       when 3
-        puts = Mechanics::slots
+        puts "Let's play slots!"
+        Mechanics::Wager::take_bid(user_profile)
+        Mechanics::slots
       when 4
-        puts = Mechanics::cup_game
+        puts "Welcome to the cup game!"
+        Mechanics::Cup_game.new
+        Mechanics::Wager::take_bid(user_profile)
+        Mechanics::Cup_game::shuffle_cups(user_profile)
       when 5
         exit(0)
       else
