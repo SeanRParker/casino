@@ -20,12 +20,6 @@ module Mechanics
       when 1
         Mechanics::Wager::take_bid(user_profile)
         Mechanics::Blackjack.blackjack(user_profile)
-        # Mechanics::Blackjack.card_selection(user_profile)
-        # Mechanics::Blackjack.card_output(user_profile)
-        # Mechanics::Blackjack.calc(user_profile)
-        # Mechanics::Blackjack.twenty_one(user_profile)
-        # Mechanics::Blackjack.dealer_hand(user_profile)
-        # Mechanics::Blackjack.play_again(user_profile)
       when 2
         Mechanics::Wager::take_bid(user_profile)
         Mechanics::High_low.turn(user_profile)
