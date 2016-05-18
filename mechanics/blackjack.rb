@@ -1,54 +1,114 @@
-module Mechanics
+# module Mechanics
+require "pry"
+# user is delt 2 cards
+# dealer is delt 2 cards
+# closest to 21 without going over wins
+   
+  def blackjack
+      puts "Welcome to Blackjack!"
+      card_selection
+  end
+               
+    
+      
+  def card_selection
+    #class and instance variables
+    @card1 = rand(1..11) 
+    @card2 = rand(1..11)
+    @card3 = rand(1..11)
+    @card4 = rand(1..11)
+    @card5 = rand(1..11)
+    @card6 = rand(1..11)
+    card_output
+  end
+   
+  def card_output
+    puts "Your cards are #{@card1} and #{@card2}"
+    @player_cards_total = @card1 + @card2
+    puts "Your cards total is #{@player_cards_total}"
+    puts "Dealer Cards"
+    puts "Dealer cards are #{@card3} and #{@card4}"
+    @dealer_cards_total = @card3 + @card4
+    dealer_hand
+    puts "Dealer cards total is #{@dealer_cards_total}"
+    puts "Would you like another card? y/n?"
+    @user_input = gets.strip
+    calc
+  end
 
-  class Cards
-    attr_accessor :rank, :suit, :color
-    #card = Card.new('k','Spade', 'Black')
-    def initialize(rank, suit)
-      @rank = rank
-      @suit = suit
-      @color = (suit == 'Spades' || suit == "Clubs")? 'Black' : 'Red'
+  def calc
+   if @user_input == "y"
+      # when user selects yes then add @card1 + @card2 + @card3 = total
+      puts "Your new card is #{@card6}"
+      @player_cards_total = @card1 + @card2 + @card5
+      puts "Total #{@player_cards_total}"
+      twenty_one
+    else @user_input == "n"
+      @player_cards_total = @card1 + @card2
+      puts @player_cards_total
+      twenty_one
     end
   end
 
-  class Deck
-    attr_accessor :cards
-
-    def initialize
-      @ranks = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
-      @suits = %w(Spades Diamonds Clubs Hearts)
-      @cards = []
-      generate_deck
+ 
+  def twenty_one
+    if @player_cards_total > 21
+      puts "You lose!"
+      play_again
+    elsif @dealer_cards_total == 21
+      puts "You lose!"
+      play_again
+    elsif @dealer_cards_total > 21 && (@player_cards_total < 21)
+      puts "You win!"
+     play_again
+    elsif @player_cards_total < 21 && (@player_cards_total > @dealer_cards_total)
+      puts "You win!"
+      play_again
     end
+  end
+    
 
-    def generate_deck
-      @suits.each do |suit|
-        @ranks.each do |rank|
-          @cards << Card.new(rank, suit)
-        end
-      end
+  def dealer_hand
+    if @dealer_cards_total <= 15
+      puts "Dealers hand is #{@card6}"
+      @dealer_cards_total = @card3 + @card4 + @card6
+      twenty_one 
+    else
+      @dealer_cards_total = @card3 + @card4
+      twenty_one
     end
+  end
+      
 
-    def self.blackjack_mech
-      cards = Deck.new.cards.shuffle
-      cards.each do |card|
-        #player is dealt two cards
-        puts "#{card.rank} of #{card.suit}" << "#{card.rank} of #{card.suit}"
-        # player is offered another card
-        puts "Would you like another card?"
-        # if under 21 offer player if they would like another
-        if @user_input == "y"
-          choice = get.to_i
-          puts "Would you like another card?"
-          # }
-          # else over 21 they have lost their bet.
-        else
-          puts "You have lost your bet!"
-        end # end of if
+  def play_again
+    puts "Would you like to play again?"
+    user_input = gets.strip
+    if user_input == "y"
+      blackjack
+    else 
+      exit(0)
+    end
+  end
 
-      end # end of do loop ?
+blackjack
 
-    end # end of blackjack_mech method
+        
 
-  end # end of deck class
 
-end # end of mechanics module
+
+      
+    
+   
+
+  
+       
+
+
+
+
+
+ 
+  
+
+
+
